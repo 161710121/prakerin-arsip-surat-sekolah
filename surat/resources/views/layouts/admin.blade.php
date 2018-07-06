@@ -27,6 +27,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset ('assets/plugins/datatables/dataTables.bootstrap4.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -71,6 +72,19 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset ('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<script src="{{ asset ('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+
+<script src="{{ asset ('assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+
+<script>
+  $(function () {
+    
+    $('#example1').DataTable({});
+  });
+</script>
+
+
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ asset ('assets/plugins/morris/morris.min.js')}}"></script>

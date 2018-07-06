@@ -7,10 +7,7 @@ use App\Instansi;
 
 class InstansiController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+   
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +16,7 @@ class InstansiController extends Controller
     public function index()
     {
         $instansi = Instansi::all();
-        return view('instansif.index', compact('Instansi'));
+        return view('instansif.index', compact('instansi'));
     }
 
     /**
