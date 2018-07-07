@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInstansiTable extends Migration
+class CreateInstansisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateInstansiTable extends Migration
      */
     public function up()
     {
-        Schema::create('instansi', function (Blueprint $table) {
+        Schema::create('instansis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_instansi');
             $table->string('kab_kota');
             $table->string('telp');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->text('alamat');
             $table->string('kepala');
             $table->integer('nip_kepala')->unique();
@@ -33,6 +33,6 @@ class CreateInstansiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instansi');
+        Schema::dropIfExists('instansis');
     }
 }

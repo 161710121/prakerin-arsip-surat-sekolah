@@ -38,16 +38,16 @@ class InstansiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_instasi'=>'required|string|max:255',
+            'nama_instansi'=>'required|string|max:255',
             'kab_kota'=>'required|string|max:255',
             'telp'=>'required|string|max:255',
-            'email'=>'required|string|email|max:255|unique:Instansi',
+            'email'=>'required|string|max:255',
             'alamat'=>'required|string|max:255',
             'kepala'=>'required|string|max:255',
-            'nip_kepala'=>'required|string|max:255|unique:dosens',
+            'nip_kepala'=>'required|string|max:255|unique:instansis',
         ]);
         $instansi = new Instansi;
-        $instansi->nama_instasi = $request->nama_instasi;
+        $instansi->nama_instansi = $request->nama_instansi;
         $instansi->kab_kota = $request->kab_kota;
         $instansi->telp = $request->telp;
         $instansi->email = $request->email;
@@ -55,7 +55,7 @@ class InstansiController extends Controller
         $instansi->kepala = $request->kepala;
         $instansi->nip_kepala = $request->nip_kepala;
         $instansi->save();
-        return redirect()->route('instansif.index');
+        return redirect()->route('instansi.index');
     }
 
     /**
@@ -79,7 +79,7 @@ class InstansiController extends Controller
     public function edit($id)
     {
         $instansi = Instansi::findOrFail($id);
-        return view('instansif.edit', compact('Instansi'));
+        return view('instansif.edit', compact('instansi'));
     }
 
     /**
@@ -98,7 +98,7 @@ class InstansiController extends Controller
             'email'=>'required|string|email|max:255|unique:Instansi',
             'alamat'=>'required|string|max:255',
             'kepala'=>'required|string|max:255',
-            'nip_kepala'=>'required|string|max:255|unique:dosens',
+            'nip_kepala'=>'required|string|max:255|unique:Instansi',
         ]);
         $instansi = Instansi::findOrFail($id);
         $instansi->nama_instasi = $request->nama_instasi;
@@ -109,7 +109,7 @@ class InstansiController extends Controller
         $instansi->kepala = $request->kepala;
         $instansi->nip_kepala = $request->nip_kepala;
         $instansi->save();
-        return redirect()->route('instansif.index');
+        return redirect()->route('instansi.index');
     }
 
     /**
@@ -122,6 +122,6 @@ class InstansiController extends Controller
     {
         $instansi = Instansi::findOrFail($id);
         $instansi->delete();
-        return redirect()->route('instansif.index');
+        return redirect()->route('instansi.index');
     }
 }
