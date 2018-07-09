@@ -26,7 +26,9 @@
   <link rel="stylesheet" href="{{ asset ('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
   <link rel="stylesheet" href="{{ asset ('assets/plugins/datatables/dataTables.bootstrap4.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -80,7 +82,21 @@
 <script>
   $(function () {
     $('#example1').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
       });
+      $('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false
+		  });  
   });
 </script>
 

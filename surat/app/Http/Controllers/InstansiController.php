@@ -67,7 +67,7 @@ class InstansiController extends Controller
     public function show($id)
     {
         $instansi = Instansi::findOrFail($id);
-        return view('instansif.show', compact('Instansi'));
+        return view('instansif.show', compact('instansi'));
     }
 
     /**
@@ -92,16 +92,16 @@ class InstansiController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_instasi'=>'required|string|max:255',
+            'nama_instansi'=>'required|string|max:255',
             'kab_kota'=>'required|string|max:255',
             'telp'=>'required|string|max:255',
-            'email'=>'required|string|email|max:255|unique:Instansi',
+            'email'=>'required|string|max:255',
             'alamat'=>'required|string|max:255',
             'kepala'=>'required|string|max:255',
-            'nip_kepala'=>'required|string|max:255|unique:Instansi',
+            'nip_kepala'=>'required|string|max:255',
         ]);
         $instansi = Instansi::findOrFail($id);
-        $instansi->nama_instasi = $request->nama_instasi;
+        $instansi->nama_instansi = $request->nama_instansi;
         $instansi->kab_kota = $request->kab_kota;
         $instansi->telp = $request->telp;
         $instansi->email = $request->email;

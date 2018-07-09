@@ -14,10 +14,10 @@
 				  <div class="card-body">
 					<div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-6">
 							<div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
 								<div class="row">
-									<div class="col-sm-12">
+									<div class="col-sm-6">
 										<table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
 					  
 								<thead>
@@ -38,7 +38,7 @@
 
 										<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="NIP Kepala: activate to sort column ascending" style="width: 250px;">NIP Kepala</th>
 										
-										<th colspan="3" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 250px;">Action</th>
+										<th colspan="3"  tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 250px;">Action</th>
 									</tr>
 					  </thead>
 					  <tbody>
