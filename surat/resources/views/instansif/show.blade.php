@@ -6,9 +6,10 @@
 				<div class="panel panel-primary">
 					<div class="card card-primary">
 	<div class="card-header">
-	  <h3 class="card-title">Edit Data Instansi</h3>
+	  <h3 class="card-title">Tampil Data Instansi</h3>
 		<a class="card-title pull-right" href="{{route('instansi.index')}}">Kembali</a>
 	</div>
+					</div>
 	<!-- /.card-header -->
 	<!-- form start -->
 	<div class="panel-body">
@@ -113,4 +114,9 @@
 					</div>
 				</div>
 	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
   @endsection

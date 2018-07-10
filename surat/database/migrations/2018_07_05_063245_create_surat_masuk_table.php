@@ -19,8 +19,10 @@ class CreateSuratMasukTable extends Migration
             $table->date('tgl_surat');
             $table->string('pengirim');
             $table->string('perihal');
+            $table->unsignedinteger('id_instansis');
+            $table->foreign('id_instansis')->references('id')->on('instansis')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->unsignedinteger('id_disposisi');
-            $table->foreign('id_disposisi')->references('id')->on('disposisi')->onDelete('CASCADE');
+            $table->foreign('id_disposisi')->references('id')->on('disposisi')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('ket_disposisi');
             $table->string('file');
             $table->timestamps();

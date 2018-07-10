@@ -9,7 +9,6 @@
 	  <h3 class="card-title">Tambah Data Instansi</h3>
 		<a class="card-title pull-right" href="{{route('instansi.index')}}">Kembali</a>
 	</div>
-					</div>
 	<!-- /.card-header -->
 	<!-- form start -->
 	<div class="panel-body">
@@ -121,8 +120,4 @@
 	  </div>
 	</form>
   </div>
-					</div>
-				</div>
-			</div>
-		</div>
   @endsection

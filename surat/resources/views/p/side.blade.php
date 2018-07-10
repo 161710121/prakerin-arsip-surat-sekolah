@@ -34,7 +34,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="surat_masuk" class="nav-link active">
+                <a href="{{ route('surat_masuk.index') }}" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Data</p>
                 </a>
@@ -53,7 +53,7 @@
   
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="surat Keluar" class="nav-link active">
+                  <a href="{{ route('surat_keluar.index') }}" class="nav-link active">
                     <i class="fa fa-circle-o nav-icon"></i>
                     <p>Data</p>
                   </a>
@@ -72,7 +72,7 @@
     
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="instansi" class="nav-link active">
+                    <a href="{{ route('instansi.index') }}" class="nav-link active">
                       <i class="fa fa-circle-o nav-icon"></i>
                       <p>Data</p>
                     </a>
@@ -91,7 +91,7 @@
       
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="disposisi" class="nav-link active">
+                      <a href="{{ route('disposisi.index') }}" class="nav-link active">
                         <i class="fa fa-circle-o nav-icon"></i>
                         <p>Data</p>
                       </a>

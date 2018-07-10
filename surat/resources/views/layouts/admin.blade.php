@@ -79,26 +79,6 @@
 
 <script src="{{ asset ('assets/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
 
-<script>
-  $(function () {
-    $('#example1').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": true
-      });
-      $('#example2').DataTable({
-			"paging": true,
-			"lengthChange": false,
-			"searching": false,
-			"ordering": true,
-			"info": true,
-			"autoWidth": false
-		  });  
-  });
-</script>
 
 
 <!-- Morris.js charts -->
