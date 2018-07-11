@@ -7,8 +7,9 @@
 					<div class="card card-primary">
 	<div class="card-header">
 	  <h3 class="card-title">Tambah Data Surat Keluar</h3>
-		<a class="card-title pull-right" href="{{route('surat_keluar.index')}}">Kembali</a>
+		<a class="fa fa-arrow-circle-left pull-right" href="{{route('surat_keluar.index')}}" style="font-size:20px"> Kembali</a>
 	</div>
+					</div>
 	<!-- /.card-header -->
 	<!-- form start -->
 	<div class="panel-body">
@@ -33,7 +34,7 @@
 					<label for="tgl_surat" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Surat') }}</label>
 
 					<div class="col-md-6">
-						<input id="tgl_surat" type="text" class="form-control{{ $errors->has('tgl_surat') ? ' is-invalid' : '' }}" name="tgl_surat" value="{{ old('tgl_surat') }}" required autofocus>
+						<input id="tgl_surat" type="date" class="form-control{{ $errors->has('tgl_surat') ? ' is-invalid' : '' }}" name="tgl_surat" value="{{ old('tgl_surat') }}" required autofocus>
 
 						@if ($errors->has('tgl_surat'))
 							<span class="invalid-feedback" role="alert">
@@ -107,7 +108,7 @@
 					<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
 
 					<div class="col-md-6">
-						<input id="alamat" type="number" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ old('alamat') }}" required autofocus>
+						<input id="alamat" type="text" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ old('alamat') }}" required autofocus>
 
 						@if ($errors->has('alamat'))
 							<span class="invalid-feedback" role="alert">
@@ -118,7 +119,7 @@
 				</div>
 
 				<div class="form-group row">
-						<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Disposisi') }}</label>
+						<label for="id_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Disposisi') }}</label>
 	
 						<div class="col-md-6">
 								<select name="id_disposisi" class="form-control">
@@ -127,37 +128,37 @@
 										@endforeach
 									</select>
 	
-							@if ($errors->has('alamat'))
+							@if ($errors->has('id_disposisi'))
 								<span class="invalid-feedback" role="alert">
-									<strong>{{ $errors->first('alamat') }}</strong>
+									<strong>{{ $errors->first('id_disposisi') }}</strong>
 								</span>
 							@endif
 						</div>
 					</div>
 
 					<div class="form-group row">
-							<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
+							<label for="ket_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Keterangan Disposisi') }}</label>
 		
 							<div class="col-md-6">
-								<input id="alamat" type="number" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ old('alamat') }}" required autofocus>
+								<input id="ket_disposisi" type="text" class="form-control{{ $errors->has('ket_disposisi') ? ' is-invalid' : '' }}" name="ket_disposisi" value="{{ old('ket_disposisi') }}" required autofocus>
 		
-								@if ($errors->has('alamat'))
+								@if ($errors->has('ket_disposisi'))
 									<span class="invalid-feedback" role="alert">
-										<strong>{{ $errors->first('alamat') }}</strong>
+										<strong>{{ $errors->first('ket_disposisi') }}</strong>
 									</span>
 								@endif
 							</div>
 						</div>
 
 						<div class="form-group row">
-								<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
+								<label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
 			
 								<div class="col-md-6">
-									<input id="alamat" type="number" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ old('alamat') }}" required autofocus>
+									<input id="file" type="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" value="{{ old('file') }}" required autofocus>
 			
-									@if ($errors->has('alamat'))
+									@if ($errors->has('file'))
 										<span class="invalid-feedback" role="alert">
-											<strong>{{ $errors->first('alamat') }}</strong>
+											<strong>{{ $errors->first('file') }}</strong>
 										</span>
 									@endif
 								</div>
@@ -170,4 +171,8 @@
 	  </div>
 	</form>
   </div>
+				</div>
+			</div>
+		</div>
+	</div>
   @endsection

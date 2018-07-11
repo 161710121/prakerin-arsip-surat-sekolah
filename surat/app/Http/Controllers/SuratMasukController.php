@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Surat_masuk;
+use App\Instansi;
+use App\Disposisi;
 
 class SuratMasukController extends Controller
 {
@@ -18,7 +20,7 @@ class SuratMasukController extends Controller
      */
     public function index()
     {
-        $surat_masuk = Surat_masuk::all();
+        $surat_masuk = Surat_masuk::with('SMDisposisi', 'SMInstansi')->get();
         return view('suratm.index', compact('surat_masuk'));
     }
 
@@ -29,7 +31,9 @@ class SuratMasukController extends Controller
      */
     public function create()
     {
-        return view('suratm.create');
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        return view('suratm.create', compact('disposisi','instansi'));
     }
 
     /**
@@ -59,6 +63,13 @@ class SuratMasukController extends Controller
         $surat_masuk->id_disposisi = $request->id_disposisi;
         $surat_masuk->ket_disposisi = $request->ket_disposisi;
         $surat_masuk->file = $request->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destinationPath = public_path(). '/assets/file/';
+            $filename = str_random(3).'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+            $surat_masuk->file = $filename;
+        }
         $surat_masuk->save();
         return redirect()->route('surat_masuk.index');
     }
@@ -72,7 +83,9 @@ class SuratMasukController extends Controller
     public function show($id)
     {
         $surat_masuk = Surat_masuk::findOrFail($id);
-        return view('suratm.show', compact('surat_masuk'));
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        return view('suratm.show', compact('surat_masuk','disposisi','instansi'));
     }
 
     /**
@@ -84,7 +97,11 @@ class SuratMasukController extends Controller
     public function edit($id)
     {
         $surat_masuk = Surat_masuk::findOrFail($id);
-        return view('suratm.edit', compact('surat_masuk'));
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        $sldis = Surat_masuk::findOrFail($id)->id_disposisi;
+        $slins = Surat_masuk::findOrFail($id)->id_instansis;
+        return view('suratm.edit', compact('surat_masuk','disposisi','instansi','slins','sldis'));
     }
 
     /**
@@ -115,6 +132,24 @@ class SuratMasukController extends Controller
         $surat_masuk->id_disposisi = $request->id_disposisi;
         $surat_masuk->ket_disposisi = $request->ket_disposisi;
         $surat_masuk->file = $request->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destinationPath = public_path().'/assets/file/';
+            $filename = str_random(3).'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+
+            if ($surat_masuk->file) {
+                $old_file = $surat_masuk->file;
+                $filepath = public_path(). DIRECTORY_SEPARATOR . '/assets/file/' . DIRECTORY_SEPARATOR . $surat_masuk-file;
+                    try{
+                        File::delete($filepath);
+                    } catch (FileNotFoundException $e) {
+
+                    }
+                }
+                    $surat_masuk->file = $filename;
+            }
+        
         $surat_masuk->save();
         return redirect()->route('surat_masuk.index');
     }

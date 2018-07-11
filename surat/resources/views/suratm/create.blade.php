@@ -6,112 +6,135 @@
 				<div class="panel panel-primary">
 					<div class="card card-primary">
 	<div class="card-header">
-	  <h3 class="card-title">Tambah Data Instansi</h3>
-		<a class="card-title pull-right" href="{{route('instansi.index')}}">Kembali</a>
+	  <h3 class="card-title">Tambah Data Surat Masuk</h3>
+		<a class="card-title pull-right" href="{{route('surat_masuk.index')}}">Kembali</a>
 	</div>
+					</div>
 	<!-- /.card-header -->
 	<!-- form start -->
 	<div class="panel-body">
-		<form action="{{ route('instansi.store') }}" method="post">
+		<form action="{{ route('surat_masuk.store') }}" method="post">
 			{{ csrf_field() }}
 
 			<div class="form-group row">
-					<label for="nama_instansi" class="col-md-4 col-form-label text-md-right">{{ __('Nama Instansi') }}</label>
+					<label for="no_surat" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Surat') }}</label>
 
 					<div class="col-md-6">
-						<input id="nama_instansi" type="text" class="form-control{{ $errors->has('nama_instansi') ? ' is-invalid' : '' }}" name="nama_instansi" value="{{ old('nama_instansi') }}" required autofocus>
+						<input id="no_surat" type="text" class="form-control{{ $errors->has('no_surat') ? ' is-invalid' : '' }}" name="no_surat" value="{{ old('no_surat') }}" required autofocus>
 
-						@if ($errors->has('nama_instansi'))
+						@if ($errors->has('no_surat'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('nama_instansi') }}</strong>
+								<strong>{{ $errors->first('no_surat') }}</strong>
 							</span>
 						@endif
 					</div>
 				</div>
 				
 			<div class="form-group row">
-					<label for="kab_kota" class="col-md-4 col-form-label text-md-right">{{ __('Kab Kota') }}</label>
+					<label for="tgl_surat" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Surat') }}</label>
 
 					<div class="col-md-6">
-						<input id="kab_kota" type="text" class="form-control{{ $errors->has('kab_kota') ? ' is-invalid' : '' }}" name="kab_kota" value="{{ old('kab_kota') }}" required autofocus>
+						<input id="tgl_surat" type="date" class="form-control{{ $errors->has('tgl_surat') ? ' is-invalid' : '' }}" name="tgl_surat" value="{{ old('tgl_surat') }}" required autofocus>
 
-						@if ($errors->has('kab_kota'))
+						@if ($errors->has('tgl_surat'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('kab_kota') }}</strong>
+								<strong>{{ $errors->first('tgl_surat') }}</strong>
 							</span>
 						@endif
 					</div>
 				</div>
 				
 			<div class="form-group row">
-					<label for="telp" class="col-md-4 col-form-label text-md-right">{{ __('Telp') }}</label>
+					<label for="pengirim" class="col-md-4 col-form-label text-md-right">{{ __('Pengirim') }}</label>
 
 					<div class="col-md-6">
-						<input id="telp" type="text" class="form-control{{ $errors->has('telp') ? ' is-invalid' : '' }}" name="telp" value="{{ old('telp') }}" required autofocus>
+						<input id="pengirim" type="text" class="form-control{{ $errors->has('pengirim') ? ' is-invalid' : '' }}" name="pengirim" value="{{ old('pengirim') }}" required autofocus>
 
-						@if ($errors->has('telp'))
+						@if ($errors->has('pengirim'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('telp') }}</strong>
+								<strong>{{ $errors->first('pengirim') }}</strong>
 							</span>
 						@endif
 					</div>
 				</div>
 				
 			<div class="form-group row">
-					<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
+					<label for="perihal" class="col-md-4 col-form-label text-md-right">{{ __('Perihal') }}</label>
 
 					<div class="col-md-6">
-						<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+						<input id="perihal" type="text" class="form-control{{ $errors->has('perihal') ? ' is-invalid' : '' }}" name="perihal" value="{{ old('perihal') }}" required autofocus>
 
-						@if ($errors->has('email'))
+						@if ($errors->has('perihal'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('email') }}</strong>
+								<strong>{{ $errors->first('perihal') }}</strong>
 							</span>
 						@endif
 					</div>
 				</div>
 				
 			<div class="form-group row">
-					<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
+					<label for="id_instansis" class="col-md-4 col-form-label text-md-right">{{ __('Instansi') }}</label>
 
 					<div class="col-md-6">
-						<input id="alamat" aria-colspan="3" type="text" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ old('alamat') }}" required autofocus>
+						<select name="id_instansis" class="form-control">
+							@foreach($instansi as $a)
+						<option value="{{ $a->id}}">{{$a->nama_instansi}}</option>
+							@endforeach
+						</select>
 
-						@if ($errors->has('alamat'))
+						@if ($errors->has('id_instansis'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('alamat') }}</strong>
+								<strong>{{ $errors->first('id_instansis') }}</strong>
 							</span>
 						@endif
 					</div>
 				</div>
-				
-			<div class="form-group row">
-					<label for="kepala" class="col-md-4 col-form-label text-md-right">{{ __('Kepala') }}</label>
 
-					<div class="col-md-6">
-						<input id="kepala" type="text" class="form-control{{ $errors->has('kepala') ? ' is-invalid' : '' }}" name="kepala" value="{{ old('kepala') }}" required autofocus>
-
-						@if ($errors->has('kepala'))
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('kepala') }}</strong>
-							</span>
-						@endif
+				<div class="form-group row">
+						<label for="id_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Disposisi') }}</label>
+	
+						<div class="col-md-6">
+								<select name="id_disposisi" class="form-control">
+										@foreach($disposisi as $a)
+									<option value="{{ $a->id}}">{{$a->disposisi}}</option>
+										@endforeach
+									</select>
+	
+							@if ($errors->has('id_disposisi'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('id_disposisi') }}</strong>
+								</span>
+							@endif
+						</div>
 					</div>
-				</div>
-				
-			<div class="form-group row">
-					<label for="nip_kepala" class="col-md-4 col-form-label text-md-right">{{ __('NIP Kepala') }}</label>
 
-					<div class="col-md-6">
-						<input id="nip_kepala" type="number" class="form-control{{ $errors->has('nip_kepala') ? ' is-invalid' : '' }}" name="nip_kepala" value="{{ old('nip_kepala') }}" required autofocus>
+					<div class="form-group row">
+							<label for="ket_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Keterangan Disposisi') }}</label>
+		
+							<div class="col-md-6">
+								<input id="ket_disposisi" type="text" class="form-control{{ $errors->has('ket_disposisi') ? ' is-invalid' : '' }}" name="ket_disposisi" value="{{ old('ket_disposisi') }}" required autofocus>
+		
+								@if ($errors->has('ket_disposisi'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('ket_disposisi') }}</strong>
+									</span>
+								@endif
+							</div>
+						</div>
 
-						@if ($errors->has('nip_kepala'))
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('nip_kepala') }}</strong>
-							</span>
-						@endif
-					</div>
-				</div>
+						<div class="form-group row">
+								<label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+			
+								<div class="col-md-6">
+									<input id="file" type="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" value="{{ old('file') }}" required autofocus>
+			
+									@if ($errors->has('file'))
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $errors->first('file') }}</strong>
+										</span>
+									@endif
+								</div>
+							</div>
 				
 	  <!-- /.card-body -->
 
@@ -120,4 +143,8 @@
 	  </div>
 	</form>
   </div>
+				</div>
+			</div>
+		</div>
+	</div>
   @endsection

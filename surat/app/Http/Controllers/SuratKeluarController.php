@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Surat_keluar;
+use App\Instansi;
+use App\Disposisi;
 
 class SuratKeluarController extends Controller
 {
@@ -18,7 +20,7 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        $surat_keluar = Surat_keluar::all();
+        $surat_keluar = Surat_keluar::with('SKDisposisi', 'SKInstansi')->get();
         return view('suratk.index', compact('surat_keluar'));
     }
 
@@ -29,7 +31,9 @@ class SuratKeluarController extends Controller
      */
     public function create()
     {
-        return view('suratk.create');
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        return view('suratk.create', compact('disposisi','instansi'));
     }
 
     /**
@@ -63,6 +67,13 @@ class SuratKeluarController extends Controller
         $surat_keluar->id_disposisi = $request->id_disposisi;
         $surat_keluar->ket_disposisi = $request->ket_disposisi;
         $surat_keluar->file = $request->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destinationPath = public_path(). '/assets/file/';
+            $filename = str_random(3).'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+            $surat_keluar->file = $filename;
+        }
         $surat_keluar->save();
         return redirect()->route('surat_keluar.index');
     }
@@ -76,7 +87,9 @@ class SuratKeluarController extends Controller
     public function show($id)
     {
         $surat_keluar = Surat_keluar::findOrFail($id);
-        return view('suratk.show', compact('surat_keluar'));
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        return view('suratk.show', compact('surat_keluar','disposisi','instansi'));
     }
 
     /**
@@ -88,7 +101,11 @@ class SuratKeluarController extends Controller
     public function edit($id)
     {
         $surat_keluar = Surat_keluar::findOrFail($id);
-        return view('suratk.edit', compact('surat_keluar'));
+        $disposisi = Disposisi::all();
+        $instansi = Instansi::all();
+        $sldis = Surat_keluar::findOrFail($id)->id_disposisi;
+        $slins = Surat_keluar::findOrFail($id)->id_instansis;
+        return view('suratk.edit', compact('surat_keluar','disposisi','instansi','slins','sldis'));
     }
 
     /**
@@ -123,6 +140,24 @@ class SuratKeluarController extends Controller
         $surat_keluar->id_disposisi = $request->id_disposisi;
         $surat_keluar->ket_disposisi = $request->ket_disposisi;
         $surat_keluar->file = $request->file;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $destinationPath = public_path().'/assets/file/';
+            $filename = str_random(3).'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destinationPath, $filename);
+
+            if ($surat_keluar->file) {
+                $old_file = $surat_keluar->file;
+                $filepath = public_path(). DIRECTORY_SEPARATOR . '/assets/file/' . DIRECTORY_SEPARATOR . $surat_keluar-file;
+                    try{
+                        File::delete($filepath);
+                    } catch (FileNotFoundException $e) {
+
+                    }
+                }
+                    $surat_keluar->file = $filename;
+            }
+        
         $surat_keluar->save();
         return redirect()->route('surat_keluar.index');
     }

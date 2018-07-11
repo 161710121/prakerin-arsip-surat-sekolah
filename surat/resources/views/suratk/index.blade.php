@@ -7,7 +7,7 @@
 				<div class="card-header">
 					<h3 class="card-title">Data Table Surat Keluar</h3>
 					<div class="card-title pull-right">
-						<a href="{{route('surat_keluar.create')}}">Tambah Data</a>
+						<a href="{{route('surat_keluar.create')}}" class="fa fa-plus"></a>
 					</div>
 				</div>
 				
@@ -25,7 +25,6 @@
 								<th>Alamat</th>
 								<th>Disposisi</th>
 								<th>Keterangan Disposisi</th>
-								<th>File</th>
 								<th colspan="3" style="text-align: center;">Action</th>
 							</tr>
 						</thead>
@@ -42,11 +41,10 @@
 								<td>{{ $data->pengirim }}</td>
 								<td>{{ $data->perihal }}</td>
 								<td>{{ $data->tertuju }}</td>
-								<td>{{ $data->id_instansis }}</td>
+								<td>{{ $data->SKInstansi->nama_instansi }}</td>
 								<td>{{ $data->alamat }}</td>
-								<td>{{ $data->id_disposisi }}</td>
+								<td>{{ $data->SKDisposisi->disposisi }}</td>
 								<td>{{ $data->ket_disposisi }}</td>
-								<td>{{ $data->file }}</td>
 								<td>
 									<a href="{{ route('surat_keluar.edit', $data->id) }}" class="btn btn-warning">Edit</a>
 								</td>

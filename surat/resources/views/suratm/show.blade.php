@@ -1,116 +1,144 @@
 @extends('layouts.admin')
 @section('content')
-	<div class="row">
-		<div class="container">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="card card-primary">
-	<div class="card-header">
-	  <h3 class="card-title">Edit Data Instansi</h3>
-		<a class="card-title pull-right" href="{{route('instansi.index')}}">Kembali</a>
-	</div>
-	<!-- /.card-header -->
-	<!-- form start -->
-	<div class="panel-body">
-			
+<div class="row">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="card card-primary">
+					<div class="card-header">
+						<h3 class="card-title">Lihat Data Surat Masuk</h3>
+							<a class="card-title pull-right" href="{{route('surat_masuk.index')}}">Kembali</a>
+					</div>
+				</div>
+<!-- /.card-header -->
+<!-- form start -->
+<div class="panel-body">
+	
+		<input name="_method" type="hidden" value="PATCH">
 			{{ csrf_field() }}
 
 			<div class="form-group row">
-					<label for="nama_instansi" class="col-md-4 col-form-label text-md-right">{{ __('Nama Instansi') }}</label>
+				<label for="no_surat" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Surat') }}</label>
 
 					<div class="col-md-6">
-						<input id="nama_instansi" type="text" class="form-control{{ $errors->has('nama_instansi') ? ' is-invalid' : '' }}" name="nama_instansi" value="{{ $instansi->nama_instansi }}" readonly>
+						<input id="no_surat" type="text" class="form-control{{ $errors->has('no_surat') ? ' is-invalid' : '' }}" name="no_surat" value="{{ $surat_masuk->no_surat }}" readonly>
 
-						@if ($errors->has('nama_instansi'))
+						@if ($errors->has('no_surat'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('nama_instansi') }}</strong>
+								<strong>{{ $errors->first('no_surat') }}</strong>
 							</span>
 						@endif
 					</div>
-				</div>
+			</div>
 				
 			<div class="form-group row">
-					<label for="kab_kota" class="col-md-4 col-form-label text-md-right">{{ __('Kab Kota') }}</label>
+				<label for="tgl_surat" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Surat') }}</label>
 
 					<div class="col-md-6">
-						<input id="kab_kota" type="text" class="form-control{{ $errors->has('kab_kota') ? ' is-invalid' : '' }}" name="kab_kota" value="{{ $instansi->kab_kota }}" readonly>
+						<input id="tgl_surat" type="date" class="form-control{{ $errors->has('tgl_surat') ? ' is-invalid' : '' }}" name="tgl_surat" value="{{ $surat_masuk->tgl_surat }}" readonly>
 
-						@if ($errors->has('kab_kota'))
+						@if ($errors->has('tgl_surat'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('kab_kota') }}</strong>
+								<strong>{{ $errors->first('tgl_surat') }}</strong>
 							</span>
 						@endif
 					</div>
-				</div>
+			</div>
 				
 			<div class="form-group row">
-					<label for="telp" class="col-md-4 col-form-label text-md-right">{{ __('Telp') }}</label>
+				<label for="pengirim" class="col-md-4 col-form-label text-md-right">{{ __('Pengirim') }}</label>
 
 					<div class="col-md-6">
-						<input id="telp" type="text" class="form-control{{ $errors->has('telp') ? ' is-invalid' : '' }}" name="telp" value="{{ $instansi->telp }}" readonly>
+						<input id="pengirim" type="text" class="form-control{{ $errors->has('pengirim') ? ' is-invalid' : '' }}" name="pengirim" value="{{ $surat_masuk->pengirim }}" readonly>
 
-						@if ($errors->has('telp'))
+						@if ($errors->has('pengirim'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('telp') }}</strong>
+								<strong>{{ $errors->first('pengirim') }}</strong>
 							</span>
 						@endif
 					</div>
-				</div>
+			</div>
 				
 			<div class="form-group row">
-					<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
+				<label for="perihal" class="col-md-4 col-form-label text-md-right">{{ __('Perihal') }}</label>
 
 					<div class="col-md-6">
-						<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $instansi->email }}" readonly>
+						<input id="perihal" type="text" class="form-control{{ $errors->has('perihal') ? ' is-invalid' : '' }}" name="perihal" value="{{ $surat_masuk->perihal }}" readonly>
 
-						@if ($errors->has('email'))
+						@if ($errors->has('perihal'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('email') }}</strong>
+								<strong>{{ $errors->first('perihal') }}</strong>
 							</span>
 						@endif
 					</div>
-				</div>
+			</div>
 				
 			<div class="form-group row">
-					<label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
+				<label for="id_instansis" class="col-md-4 col-form-label text-md-right">{{ __('Instansi') }}</label>
 
 					<div class="col-md-6">
-						<input id="alamat" aria-colspan="3" type="text" class="form-control{{ $errors->has('alamat') ? ' is-invalid' : '' }}" name="alamat" value="{{ $instansi->alamat }}" readonly>
+						@foreach($instansi as $data)
+							<input id="id_instansis" type="text" class="form-control{{ $errors->has('id_instansis') ? ' is-invalid' : '' }}" name="id_instansis" value="{{ $data->nama_instansi }}" readonly>
+						@endforeach
+					
 
-						@if ($errors->has('alamat'))
+						@if ($errors->has('id_instansis'))
 							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('alamat') }}</strong>
+								<strong>{{ $errors->first('id_instansis') }}</strong>
 							</span>
 						@endif
 					</div>
+			</div>
+
+				<div class="form-group row">
+					<label for="id_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Disposisi') }}</label>
+	
+						<div class="col-md-6">
+							@foreach($disposisi as $data)
+								<input id="id_disposisi" type="text" class="form-control{{ $errors->has('id_disposisi') ? ' is-invalid' : '' }}" name="id_disposisi" value="{{ $data->disposisi }}" readonly>
+							@endforeach
+	
+							@if ($errors->has('id_disposisi'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('id_disposisi') }}</strong>
+								</span>
+							@endif
+						</div>
 				</div>
-				
-			<div class="form-group row">
-					<label for="kepala" class="col-md-4 col-form-label text-md-right">{{ __('Kepala') }}</label>
 
-					<div class="col-md-6">
-						<input id="kepala" type="text" class="form-control{{ $errors->has('kepala') ? ' is-invalid' : '' }}" name="kepala" value="{{ $instansi->kepala }}" readonly>
-
-						@if ($errors->has('kepala'))
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('kepala') }}</strong>
-							</span>
-						@endif
+					<div class="form-group row">
+						<label for="ket_disposisi" class="col-md-4 col-form-label text-md-right">{{ __('Keterangan Disposisi') }}</label>
+		
+							<div class="col-md-6">
+								<input id="ket_disposisi" type="text" class="form-control{{ $errors->has('ket_disposisi') ? ' is-invalid' : '' }}" name="ket_disposisi" value="{{ $surat_masuk->ket_disposisi }}" readonly>
+		
+								@if ($errors->has('ket_disposisi'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('ket_disposisi') }}</strong>
+									</span>
+								@endif
+							</div>
 					</div>
-				</div>
-				
-			<div class="form-group row">
-					<label for="nip_kepala" class="col-md-4 col-form-label text-md-right">{{ __('NIP Kepala') }}</label>
 
-					<div class="col-md-6">
-						<input id="nip_kepala" type="number" class="form-control{{ $errors->has('nip_kepala') ? ' is-invalid' : '' }}" name="nip_kepala" value="{{ $instansi->nip_kepala }}" readonly>
-
-						@if ($errors->has('nip_kepala'))
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $errors->first('nip_kepala') }}</strong>
-							</span>
-						@endif
-					</div>
-				</div>
+						<div class="form-group row">
+							<label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+			
+								<div class="col-md-6">
+									<input id="file" type="text" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" value="{{ $surat_masuk->file }}" readonly>
+			
+									@if ($errors->has('file'))
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $errors->first('file') }}</strong>
+										</span>
+									@endif
+								</div>
+						</div>
+						<!-- /.card-body -->
+					
+		</form>
 	</div>
-  @endsection
+</div>
+</div>
+</div>
+</div>
+@endsection

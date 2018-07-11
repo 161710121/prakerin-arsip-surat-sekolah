@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ url('/') }}" class="brand-link bg-warning">
       <img src="{{ asset ('img/smk.png')}}" alt="SMK Assalaam Logo" class="brand-image img-circle elevation-3"
            style="opacity: 1.0">
       <span class="brand-text font-weight-light">P S S</span>
@@ -9,7 +9,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-2 pt-2 pb-3 mb-3 d-flex bg-primary">
         <div class="image">
           <img src="{{ asset ('assets/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
@@ -25,7 +25,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-dashboard"></i>
+              <i class="nav-icon ion ion-email-unread" style="font-size:25px;color:mediumturquoise"></i>
               <p>
                 Surat Masuk
                 <i class="right fa fa-angle-left"></i>
@@ -44,7 +44,7 @@
 
           <li class="nav-item has-treeview ">
               <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-dashboard"></i>
+                <i class="nav-icon fa fa-envelope-open" style="color:dodgerblue"></i>
                 <p>
                   Surat Keluar
                   <i class="right fa fa-angle-left"></i>
@@ -63,7 +63,7 @@
 
             <li class="nav-item has-treeview ">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-dashboard"></i>
+                  <i class="nav-icon fa fa-building" style="color:#7f7f7f"></i>
                   <p>
                     Instansi
                     <i class="right fa fa-angle-left"></i>
@@ -82,7 +82,7 @@
 
               <li class="nav-item has-treeview ">
                   <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-dashboard"></i>
+                    <i class="nav-icon fa fa-clipboard" style="color:saddlebrown"></i>
                     <p>
                       Disposisi
                       <i class="right fa fa-angle-left"></i>
@@ -97,6 +97,7 @@
                       </a>
                     </li>
                   </ul>
+
                 </li>
               </ul>
             </nav>
