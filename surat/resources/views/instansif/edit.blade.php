@@ -7,7 +7,7 @@
 					<div class="card card-primary">
 	<div class="card-header">
 	  <h3 class="card-title">Edit Data Instansi</h3>
-		<a class="card-title pull-right" href="{{route('instansi.index')}}">Kembali</a>
+		<a class="fa fa-arrow-circle-left card-title pull-right" href="{{route('instansi.index')}}"> Kembali</a>
 	</div>
 					</div>
 	<!-- /.card-header -->

@@ -31,5 +31,6 @@ Route::resource('instansi', 'InstansiController');
 Route::resource('disposisi', 'DisposisiController');
 Route::resource('surat_masuk', 'SuratMasukController');
 Route::resource('surat_keluar', 'SuratKeluarController');
+Route::resource('user', 'UserController');
 
 });

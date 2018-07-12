@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Surat_masuk;
+use App\Surat_keluar;
+use App\Instansi;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,6 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         $sm = Surat_masuk::count();
-        return view('home', compact('sm'));
+        $sk = Surat_keluar::count();
+        $in = Instansi::count();
+        $us = User::count();
+        return view('home', compact('sm', 'sk', 'in', 'us'));
     }
 }

@@ -29,7 +29,6 @@ class UserSeeder extends Seeder
         $admin = new user;
         $admin->name = "Admin";
         $admin->username = "admin";
-        $admin->email = "admin@gmail.com";
         $admin->password = bcrypt('123');
         $admin->save();
         $admin->attachRole($adminRole);
@@ -38,7 +37,6 @@ class UserSeeder extends Seeder
         $member = new user;
         $member->name = "Member";
         $member->username = "member";
-        $member->email = "member@gmail.com";
         $member->password = bcrypt('123');
         $member->save();
         $member->attachRole($memberRole);

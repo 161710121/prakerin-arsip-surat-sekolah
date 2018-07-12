@@ -7,7 +7,7 @@
 					<div class="card card-primary">
 	<div class="card-header">
 	  <h3 class="card-title">Tambah Data Surat Masuk</h3>
-		<a class="card-title pull-right" href="{{route('surat_masuk.index')}}">Kembali</a>
+		<a class="card-title pull-right" href="{{route('surat_masuk.index')}}"><i class="fa fa-arrow-circle-left"></i> Kembali</a>
 	</div>
 					</div>
 	<!-- /.card-header -->

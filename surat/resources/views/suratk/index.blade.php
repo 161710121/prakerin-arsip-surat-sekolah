@@ -5,9 +5,9 @@
 		<div class="col-12">
 		  	<div class="card card-info">
 				<div class="card-header">
-					<h3 class="card-title">Data Table Surat Keluar</h3>
+					<h3 class="card-title">Data Surat Keluar</h3>
 					<div class="card-title pull-right">
-						<a href="{{route('surat_keluar.create')}}" class="fa fa-plus"></a>
+						<a href="{{route('surat_keluar.create')}}">Tambah Data <i class="fa fa-plus"></i></a>
 					</div>
 				</div>
 				
@@ -55,7 +55,7 @@
 									<form action="{{ route('surat_keluar.destroy', $data->id) }}" method="post">
 										<input type="hidden" name="_token" value="{{ csrf_token() }}">
 										<input type="hidden" name="_method" value="DELETE">
-										<button type="submit" class="btn btn-danger">Delete</button>
+										<button type="submit" class="btn btn-danger" onClick="return confirm('Are You Absolutely Sure You Want to Delete the Data?')">Delete</button>
 									</form>
 								</td>
 							</tr>

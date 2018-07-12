@@ -22,51 +22,51 @@
 
             <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>{{ $sm }}</h3>
+                            <h3>{{ $sk }}</h3>
               
                             <p>Surat Keluar</p>
                         </div>
              
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="fa fa-envelope-open"></i>
                         </div>
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('surat_keluar.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
 
                     <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-info">
+                            <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>{{ $sm }}</h3>
+                                    <h3>{{ $in }}</h3>
                       
                                     <p>Instansi</p>
                                 </div>
                      
                                 <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                    <i class="fa fa-building"></i>
                                 </div>
-                                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{ route('instansi.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             <!-- ./col -->
 
                             <div class="col-lg-3 col-6">
                                     <!-- small box -->
-                                    <div class="small-box bg-info">
+                                    <div class="small-box bg-primary">
                                         <div class="inner">
-                                            <h3>{{ $sm }}</h3>
+                                            <h3>{{ $us }}</h3>
                               
                                             <p>User</p>
                                         </div>
                              
                                         <div class="icon">
-                                            <i class="ion ion-bag"></i>
+                                            <i class="fa fa-user"></i>
                                         </div>
-                                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                            <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                                         </div>
                                     </div>
                                     <!-- ./col -->
